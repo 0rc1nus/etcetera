@@ -52,7 +52,7 @@ public class TurtleRaftEntity extends BoatEntity {
                 this.emitGameEvent(GameEvent.ENTITY_INTERACT, player);
                 this.setBanner(copy);
                 return ActionResult.SUCCESS;
-            } else if (!this.getBanner().isEmpty() && stack.isEmpty() && player.isSneaking()) {
+            } else if (!this.getBanner().isEmpty() && hand == Hand.MAIN_HAND && stack.isEmpty() && player.isSneaking()) {
                 ItemStack copy = this.getBanner();
                 player.setStackInHand(hand, copy);
                 this.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 1.0F, 1.0F);
